@@ -69,6 +69,11 @@ public class PlanetaService {
 
 		JsonNode json = new ObjectMapper().readTree(response.toString());
 		JsonNode results = json.get("results");
+		
+		if (results.size() == 0 || results == null) {
+			return null;
+		}
+		
 		JsonNode planeta = results.get(0);
 		JsonNode films = planeta.get("films");
 
